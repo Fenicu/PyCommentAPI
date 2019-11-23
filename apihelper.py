@@ -1,4 +1,5 @@
 import requests
+from six import iteritems, text_type
 from json import loads
 API_URL = "https://api.comments.bot/{0}"
 
@@ -55,6 +56,16 @@ class Comments:
         method_url = r'deletePost'
         payload = {'post_id': self.id}
         return _make_request(self.token, method_url, payload)
+
+    def __str__(self):
+        d = {}
+        for x, y in iteritems(self.__dict__):
+            if hasattr(y, '__dict__'):
+                d[x] = y.__dict__
+            else:
+                d[x] = y
+
+        return text_type(d)
 
 class CommentsApiException(Exception):
     def __init__(self, msg, function_name, result):
