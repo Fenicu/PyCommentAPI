@@ -1,7 +1,7 @@
 from PyCommentAPI import apihelper
 
 class Comments:
-    def __init__(self, token: str, owner: str = None):
+    def __init__(self, token, owner=None):
         self.token = token
         self.owner = owner
 
