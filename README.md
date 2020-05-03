@@ -13,6 +13,10 @@ You need to put the library in the project folder.
 ```
 $ git clone https://github.com/Feno4ka/PyCommentAPI.git
 ```
+or install from PyPi
+```
+$ python -m pip install PyCommentAPI
+```
 
 ## Writing your first comments bot
 ```python
