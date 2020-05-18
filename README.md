@@ -61,7 +61,7 @@ async def NewPost(text):
     except PyCommentAPI.apihelper.CommentsApiException as error:
         print(error)
 
-async def ClientClose():
+async def SessionClose():
     await bot.close()
 
 if __name__ == "__main__":
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(test(out))
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(ClientClose())
+    loop.run_until_complete(SessionClose())
 ```
 
 |func|argument(s)|
