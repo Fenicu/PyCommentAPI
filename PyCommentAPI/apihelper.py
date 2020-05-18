@@ -5,7 +5,7 @@ API_URL = "https://api.comments.bot/{0}"
 
 def _make_request(token, method_name, params=None):
     """
-    Делает реквест к апи Comments
+    Make request to comments.bot
     """
     request_url = API_URL.format(method_name)
     params['api_key'] = token

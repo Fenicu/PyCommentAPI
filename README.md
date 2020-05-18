@@ -45,6 +45,31 @@ post.delete_post()
 # or postbot.delete_post(post.id)
 ```
 
+## Or do you need an asynchronous version?
+
+```python
+import asyncio
+
+import PyCommentAPI
+
+bot = PyCommentAPI.AioComments(token=TOKEN, owner=TELEGRAM_USER_ID)
+
+async def NewPost(text):
+    try:
+        post = await bot.create_post('text', text=text, parse_mode='HTML')
+        print(post.link)
+    except PyCommentAPI.apihelper.CommentsApiException as error:
+        print(error)
+
+async def ClientClose():
+    await bot.close()
+
+if __name__ == "__main__":
+    out = "Hello, <b>Oak</b>!!"
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(test(out))
+```
+
 |func|argument(s)|
 |:---:|---|
 |create_post|`owner_id` = telegram user id, `type` = photo or text, `text` = some text, `photo_url` = photo url, `caption` = photo caption, `parse_mode` = HTML or markdown, `administrators` = list admins, disable_notifications = `true` if you want to disable notifications about new comments for all admins of the post|
