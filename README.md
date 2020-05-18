@@ -68,6 +68,8 @@ if __name__ == "__main__":
     out = "Hello, <b>Oak</b>!!"
     loop = asyncio.get_event_loop()
     loop.run_until_complete(test(out))
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(ClientClose())
 ```
 
 |func|argument(s)|
